@@ -1,0 +1,41 @@
+#musicControl {
+	position: fixed;
+	right: 10px;
+	top: 20px;
+	margin-top: 0;
+	display: inline-block;
+	z-index: 99999999
+}
+
+#musicControl a {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	overflow: hidden;
+	background: url('../images/mcbg.png') no-repeat;
+	background-size: 100%;
+}
+
+#musicControl a audio {
+	width: 100%;
+	height: 56px;
+}
+
+#musicControl a.stop {
+	background-position: left bottom;
+}
+
+#musicControl a.on {
+	background-position: 0px 1px;
+	-webkit-animation: reverseRotataZ 5.20s linear infinite;
+}
+
+#music_play_filter {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999998;
+}

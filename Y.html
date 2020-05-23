@@ -6,6 +6,9 @@
 		<meta charset="utf-8">
 		<script src="js/jquery.min.js"></script>
 		<script src="js/yinghua.js"></script>
+		<script src="js/music.js"></script>
+		<link rel="stylesheet" href="css/3d.css">
+		<link rel="stylesheet" href="css/music.css">
 		<link rel="stylesheet" href="css/yinghua.css">
 		<style type="text/css">
 			* {
@@ -17,193 +20,6 @@
 				width: 100%;
 				height: 100%;
 				background: #6666;
-			}
-
-			.container {
-				width: 300px;
-				height: 300px;
-				margin: 200px auto;
-				perspective: 20000px;
-			}
-
-			.box {
-				width: 300px;
-				height: 300px;
-				border: 1px solid transparent;
-				box-sizing: border-box;
-				position: relative;
-				transform-style: preserve-3d;
-				/*transform:rotateX(30deg) rotateY(30deg);*/
-				animation: rotate 10s linear infinite;
-			}
-
-			@keyframes rotate {
-				100% {
-					transform: rotatex(360deg) rotatey(360deg) rotatez(360deg);
-				}
-			}
-
-			.box-page {
-				width: 300px;
-				height: 300px;
-				position: absolute;
-				box-sizing: border-box;
-				transform-style: preserve-3d;
-			}
-
-
-			.top {
-				transform: translateZ(150px);
-			}
-
-			.bottom {
-				transform: translateZ(-150px) rotateX(180deg);
-			}
-
-			.right {
-				transform: translateX(150px) rotateY(90deg);
-			}
-
-			.left {
-				transform: translateX(-150px) rotateY(-90deg);
-			}
-
-			.after {
-				transform: translateY(-150px) rotateX(90deg);
-			}
-
-			.before {
-				transform: translateY(150px) rotateX(-90deg);
-			}
-
-			.box-page div:first-child,
-			.box-page div:nth-child(3),
-			.box-page div:nth-child(5),
-			.box-page div:nth-child(7),
-			.box-page div:nth-child(9) {
-				transform: rotateY(0deg);
-				animation: rotatey 6s ease-in-out infinite;
-			}
-
-			@keyframes rotatey {
-				0% {
-					transform: translateZ(0px) scale(1) rotateZ(0deg);
-				}
-
-				20% {
-					transform: rotateY(0deg);
-					background-size: 300px 300px;
-				}
-
-				40% {
-					transform: rotateY(540deg);
-					background-size: 100px 100px;
-				}
-
-				60% {
-					transform: rotateY(540deg) scale(0.5);
-					background-size: 100px 100px;
-				}
-
-				80% {
-					transform: rotateY(0deg) scale(1);
-					background-size: 300px 300px;
-				}
-			}
-
-			.box-page div:nth-child(2),
-			.box-page div:nth-child(4),
-			.box-page div:nth-child(6),
-			.box-page div:nth-child(8) {
-				transform: rotateX(0deg);
-				animation: rotatex 6s ease-in-out infinite;
-			}
-
-			@keyframes rotatex {
-				20% {
-					transform: scale(1) rotateX(0deg);
-					background-size: 300px 300px;
-				}
-
-				40% {
-					/*background-image: url("img/img.jpg");*/
-					transform: scale(0.5) rotateX(540deg);
-					background-size: 100px 100px;
-				}
-
-				60% {
-					/*background-image: url("img/img.jpg");*/
-					transform: rotateX(540deg);
-					background-size: 100px 100px;
-				}
-
-				80% {
-					transform: rotateX(0deg);
-					background-size: 300px 300px;
-				}
-			}
-
-			/* music */
-			@-webkit-keyframes reverseRotataZ {
-				0% {
-					-webkit-transform: rotateZ(0deg);
-				}
-
-				100% {
-					-webkit-transform: rotateZ(-360deg);
-				}
-			}
-
-			@-webkit-keyframes rotataZ {
-				0% {
-					-webkit-transform: rotateZ(0deg);
-				}
-
-				100% {
-					-webkit-transform: rotateZ(360deg);
-				}
-			}
-
-			#musicControl {
-				position: fixed;
-				right: 10px;
-				top: 20px;
-				margin-top: 0;
-				display: inline-block;
-				z-index: 99999999
-			}
-
-			#musicControl a {
-				display: inline-block;
-				width: 25px;
-				height: 25px;
-				overflow: hidden;
-				background: url('images/mcbg.png') no-repeat;
-				background-size: 100%;
-			}
-
-			#musicControl a audio {
-				width: 100%;
-				height: 56px;
-			}
-
-			#musicControl a.stop {
-				background-position: left bottom;
-			}
-
-			#musicControl a.on {
-				background-position: 0px 1px;
-				-webkit-animation: reverseRotataZ 5.20s linear infinite;
-			}
-
-			#music_play_filter {
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
-				position: fixed;
-				top: 0;
-				left: 0;
-				z-index: 99999998;
 			}
 		</style>
 	</head>
@@ -222,15 +38,15 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			$(function(){
-			    $('.cherry').Cherry_Blossoms({
-			        is_Cherry:true,//是否生成樱花
-			        image_min:10,//花瓣最小宽度和高度
-			        image_max:50,//花瓣最大宽度和高度
-			        time_min:10000,//花瓣最快下坠时间
-			        time_max:20000,//花瓣最慢下坠时间
-			        interval:500//花瓣生成时间间隔
-			    })
+			$(function() {
+				$('.cherry').Cherry_Blossoms({
+					is_Cherry: true, //是否生成樱花
+					image_min: 10, //花瓣最小宽度和高度
+					image_max: 50, //花瓣最大宽度和高度
+					time_min: 10000, //花瓣最快下坠时间
+					time_max: 20000, //花瓣最慢下坠时间
+					interval: 500 //花瓣生成时间间隔
+				})
 			})
 			var arr = document.querySelectorAll(".box>div");
 			for (var n = 0; n < arr.length; n++) {
@@ -252,68 +68,15 @@
 					}
 				}
 			}
-			/* music */
-			function play_music() {
-				if ($('#mc_play').hasClass('on')) {
-					$('#mc_play audio').get(0).pause();
-					$('#mc_play').attr('class', 'stop');
-				} else {
-					$('#mc_play audio').get(0).play();
-					$('#mc_play').attr('class', 'on');
-				}
-				$('#music_play_filter').hide();
-				event.stopPropagation(); //阻止冒泡 
-			}
-
-			function just_play(id) {
-				$('#mc_play audio').get(0).play();
-				$('#mc_play').attr('class', 'on');
-				if (typeof(id) != 'undefined') {
-					$('#music_play_filter').hide();
-				}
-				event.stopPropagation(); //阻止冒泡 
-			}
-
-			function is_weixn() {
-				return false;
-				var ua = navigator.userAgent.toLowerCase();
-				if (ua.match(/MicroMessenger/i) == "micromessenger") {
-					return true;
-				} else {
-					return false;
-				}
-			}
-			var play_filter = document.getElementById('music_play_filter');
-			play_filter.addEventListener('click', function() {
-				just_play(1);
-			});
-			play_filter.addEventListener('touchstart', function() {
-				just_play(1);
-			});
-			play_filter.addEventListener('touchend', function() {
-				just_play(1);
-			});
-			play_filter.addEventListener('touchmove', function() {
-				just_play(1);
-			});
-			play_filter.addEventListener('mousedown', function() {
-				just_play(1);
-			});
-			play_filter.addEventListener('mouseup', function() {
-				just_play(1);
-			});
-			play_filter.addEventListener('mousemove', function() {
-				just_play(1);
-			});
 			window.onload = function() {
 				if (!is_weixn()) {
-					just_play();
+					// just_play();
 				}
 			}
 		</script>
 		<span id="musicControl">
 			<a id="mc_play" class="stop" onclick="play_music();">
-				<audio id="musicfx" loop="loop">
+				<audio id="musicfx" loop="loop" <!-- autoplay="autoplay" -->>
 					<source src="https://sharefs.yun.kugou.com/202005232240/3429d402e3818865b7b84a33548cfb06/G168/M08/02/19/SIcBAF1CtVeASyqZADdG25sPgh8406.mp3"
 					 type="audio/mpeg">
 				</audio>
