@@ -3,8 +3,10 @@
 	<head>
 		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="js/jquery.min.js"></script>
 		<meta charset="utf-8">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/yinghua.js"></script>
+		<link rel="stylesheet" href="css/yinghua.css">
 		<style type="text/css">
 			* {
 				margin: 0;
@@ -206,6 +208,9 @@
 		</style>
 	</head>
 	<body>
+		<div class="cherry">
+			<img id="yinghua">
+		</div>
 		<div class="container">
 			<div class="box">
 				<div class="top box-page"></div>
@@ -217,6 +222,16 @@
 			</div>
 		</div>
 		<script type="text/javascript">
+			$(function(){
+			    $('.cherry').Cherry_Blossoms({
+			        is_Cherry:true,//是否生成樱花
+			        image_min:10,//花瓣最小宽度和高度
+			        image_max:50,//花瓣最大宽度和高度
+			        time_min:10000,//花瓣最快下坠时间
+			        time_max:20000,//花瓣最慢下坠时间
+			        interval:500//花瓣生成时间间隔
+			    })
+			})
 			var arr = document.querySelectorAll(".box>div");
 			for (var n = 0; n < arr.length; n++) {
 				for (var i = 0; i < 3; i++) {
